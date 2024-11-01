@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+{% load socialaccount %}
+
+{% block title %}Login{% endblock title %}
+
+
+{% block content %}
+
+<div class="container mt-3">
+    <h1>Login</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+</div>
+
+<div class="text-center mt-3">
+
+    <a href="{% provider_login_url 'google' %}" class="btn btn-danger">Login pake Google</a>
+ </div>
+
+{% endblock content %}
